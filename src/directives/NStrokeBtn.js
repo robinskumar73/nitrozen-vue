@@ -1,18 +1,15 @@
-import Vue from 'vue';
-
-const strokeBtn = Vue.directive('stroke-btn', {
-  bind: function (el, binding, vnode) {
-    el.classList.add('n-button-stroke');
-    if(vnode.componentOptions.propsData.theme == 'secondary') {
-      el.classList.add('n-button-stroke-secondary');
-    }
-    else {
-      el.classList.add('n-button-stroke-primary');
-    }
-
+const strokeBtn =  function (el, binding, vnode) {
+  el.classList.add('n-button-stroke');
+  if(vnode.props.theme == 'secondary') {
+    el.classList.add('n-button-stroke-secondary');
   }
-})
-Vue.use(strokeBtn);
+  else if(vnode.props.theme == 'destructive'){
+    el.classList.add('n-button-stroke-destructive');
+  }
+  else {
+    el.classList.add('n-button-stroke-primary');
+  }
+}
 
 // bind
 // inserted
